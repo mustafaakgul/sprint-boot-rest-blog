@@ -1,1 +1,7 @@
 ## The Spring Boot blog is a dynamic and scalable web application that leverages the power of Spring Boot
+
+### Best Practices
+* Do not use wildcard imports
+    * In the Settings/Preferences, Editor | Code Style | Java | Imports.
+    * Make sure that the Use single class import option is enabled.
+    * In the Class count to use import with '' and Names count to use static import with '' fields, specify values that definitely exceed the number of classes in a package and the number of names in a class (for example, 999 ).
