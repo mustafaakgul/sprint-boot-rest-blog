@@ -26,6 +26,7 @@ body>footer {
     display: inline-block;
     margin-right: 10px;
 }
+
 body>aside {
     float: right;
     width: 200px;
@@ -50,6 +51,25 @@ body>main:after {
     display: block;
     clear: both;
 }
+
+ul#messages li {
+    display: block;
+    width: 80%;
+    margin: 5px auto;
+    text-align: center;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+ul#messages li.info {
+    background: #7f7;
+}
+
+ul#messages li.error {
+    background: #d00;
+    color: white;
+}
+
 .formError {
     color: red;
     font-style: italic;

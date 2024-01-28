@@ -8,7 +8,7 @@
     <script src="../static/js/jquery-3.1.0.min.js" th:src="@{/js/jquery-3.1.0.min.js}"></script>
     <script src="../static/js/blog-scripts.js" th:src="@{/js/blog-scripts.js}"></script>
     <meta th:include="this :: head" th:remove="tag"/>
-    <title>Spring MVC Blog</title>
+    <title th:text="${post.title}">View Post</title>
 </head>
 
 <body>
@@ -30,28 +30,24 @@
     </div>
 </header>
 
-<aside>
-    <h2>Recent Posts</h2>
-    <a href="#" th:each="p : ${latest5posts}" th:text="${p.title}" th:href="@{/posts/view/{id}/(id=${p.id})}">Work Begins on HTML5.1</a>
-</aside>
-
 <main id="posts">
-    <article th:each="p : ${latest3posts}">
-        <h2 class="title" th:text="${p.title}">Post Title</h2>
+    <article>
+        <h2 class="title" th:text="${post.title}">Post Title</h2>
         <div class="date">
             <i>Posted on</i>
-            <span th:text="${#dates.format(p.date, 'dd-MMM-yyyy')}">22-May-2016</span>
-            <span th:if="${p.author}" th:remove="tag">
-          <i>by</i>
-          <span th:text="${p.author.fullName != null ? p.author.fullName : p.author.username}">Svetlin Nakov</span>
+            <span th:text="${#dates.format(post.date, 'dd-MMM-yyyy')}">22-May-2016</span>
+            <span th:if="${post.author}" th:remove="tag">
+        <i>by</i>
+        <span th:text="${post.author.fullName != null ?
+                         post.author.fullName : post.author.username}">Svetlin Nakov</span>
         </span>
         </div>
-        <p class="content" th:utext="${p.body}">Post content</p>
+        <p class="content" th:utext="${post.body}">Post content</p>
     </article>
 </main>
 
-<!--<footer th:replace="/fragments/layout :: site-footer" />-->
 <footer>&copy; Spring MVC Blog System, 2016</footer>
+
 </body>
 
 </html>

@@ -1,10 +1,12 @@
 package com.example.blog.services;
 
-import com.example.blog.models.Post;
-import com.example.blog.models.User;
+import com.example.blog.model.Post;
+import com.example.blog.model.User;
 import org.springframework.stereotype.Service;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 @Service
@@ -30,7 +32,6 @@ public class PostServiceStubImpl implements PostService {
     @Override
     public List<Post> findLatest5() {
         return this.posts.stream()
-                .sorted((a, b) -> a.getId().compareTo(b.getId()))
                 .sorted((a, b) -> b.getDate().compareTo(a.getDate()))
                 .limit(5)
                 .collect(Collectors.toList());
