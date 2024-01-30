@@ -12,9 +12,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/v1/users")
@@ -28,9 +30,10 @@ public class UserController {
         return ResponseEntity.ok(userService.getUserList());
     }
 
-    @GetMapping("/user/{id}")
-    public ResponseEntity<User> getUserById(@PathVariable int id) {
-        return ResponseEntity.ok().body(this.userService.getUserById(id));
+    @GetMapping("/{id}")
+    public ResponseEntity<Optional<User>> getUserById(@PathVariable int id) {
+        Optional<User> user = Optional.ofNullable(this.userService.getUserById(id));
+        return ResponseEntity.ok().body(user);
     }
 
     @PostMapping("")
@@ -38,17 +41,24 @@ public class UserController {
         return ResponseEntity.ok(this.userService.createUser(user));
     }
 
-  /*  @PostMapping("/addUsers")
+    @PostMapping("/multiple")
     public ResponseEntity<List<User>> addUsers(@RequestBody List<User> list) {
         return ResponseEntity.ok(this.userService.createUserList(list));
-    }*/
+    }
 
-    @PutMapping("/updateUsers/")
+    @PutMapping("/update")
     public ResponseEntity<User> updateUser(@RequestBody User user) {
         return ResponseEntity.ok().body(this.userService.updateUserById(user));
     }
 
-    @DeleteMapping("/deleteUsers/{id}")
+    @PutMapping("/test")
+    public String updateUsernameById(@RequestParam String name, @RequestParam String newName) {
+        return name + " updated " + newName;
+    }
+    //http://127.0.0.1:8081/api/v1/users/test?name=asd&newName=asdf
+
+
+    @DeleteMapping("/delete/{id}")
     public HttpStatus deleteUser(@PathVariable int id) {
         this.userService.deleteUserById(id);
         return HttpStatus.OK;
