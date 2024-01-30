@@ -8,8 +8,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-///posts/view/{id}/, e.g. http://localhost:8080/posts/view/3/
-
 @Controller
 public class PostController {
     @Autowired
