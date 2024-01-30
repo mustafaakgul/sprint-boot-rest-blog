@@ -9,6 +9,11 @@
 * "Optional" can be used as a return type for repository methods to indicate that a null value will be returned in the case of a non-existent entity.
 * Folder name in strıcture should be singular -> "entity" not "entities"
 
+### How to run
+* Run the main method in the com.example.demo.DemoApplication class from your IDE.
+* Alternatively you can use the Spring Boot Maven plugin like so:
+    * mvn spring-boot:run
+
 ### CURL Commands
 * Create -> curl -X POST -H "Content-Type: application/json" -d '{"username":"John Doe", "firstName":"john", "lastName":"doe", "age":21}' http://localhost:8080/api/v1/users
 * Get All -> curl http://localhost:8080/api/v1/users
