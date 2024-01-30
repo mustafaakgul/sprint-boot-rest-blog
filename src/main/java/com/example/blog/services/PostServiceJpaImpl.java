@@ -1,12 +1,14 @@
 package com.example.blog.services;
-import blog.models.Post;
-import blog.repositories.PostRepository;
+
+import com.example.blog.models.Post;
+import com.example.blog.repositories.PostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @Primary
@@ -21,13 +23,13 @@ public class PostServiceJpaImpl implements PostService {
     }
 
     @Override
-    public List<Post> findLatest5() {
-        return this.postRepo.findLatest5Posts(new PageRequest(0, 5));
+    public List<Post> findLatest7() {
+        return this.postRepo.findLatest7Posts(PageRequest.of(0, 7));
     }
 
     @Override
-    public Post findById(Long id) {
-        return this.postRepo.findOne(id);
+    public Optional<Post> findById(Long id) {
+        return this.postRepo.findById(id);
     }
 
     @Override
@@ -42,7 +44,7 @@ public class PostServiceJpaImpl implements PostService {
 
     @Override
     public void deleteById(Long id) {
-        this.postRepo.delete(id);
+        this.postRepo.deleteById(id);
     }
 
 }
