@@ -17,13 +17,13 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v1")
+@RequestMapping("/api/v1/users")
 public class UserController {
 
     @Autowired
     private UserService userService;
 
-    @GetMapping("/users")
+    @GetMapping("")
     public ResponseEntity<List<User>> getAllUsers() {
         return ResponseEntity.ok(userService.getUserList());
     }
@@ -33,15 +33,15 @@ public class UserController {
         return ResponseEntity.ok().body(this.userService.getUserById(id));
     }
 
-    @PostMapping("/addUser")
+    @PostMapping("")
     public ResponseEntity<User> addUser(@RequestBody User user) {
         return ResponseEntity.ok(this.userService.createUser(user));
     }
 
-    @PostMapping("/addUsers")
+  /*  @PostMapping("/addUsers")
     public ResponseEntity<List<User>> addUsers(@RequestBody List<User> list) {
         return ResponseEntity.ok(this.userService.createUserList(list));
-    }
+    }*/
 
     @PutMapping("/updateUsers/")
     public ResponseEntity<User> updateUser(@RequestBody User user) {
