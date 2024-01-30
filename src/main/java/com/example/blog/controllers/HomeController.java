@@ -13,8 +13,11 @@ import java.util.stream.Collectors;
 @Controller
 public class HomeController {
 
-    @Autowired
-    private PostService postService;
+    private final PostService postService;
+
+    public HomeController(PostService postService) {
+        this.postService = postService;
+    }
 
     @RequestMapping("/last7")
     public String index(Model model) {
