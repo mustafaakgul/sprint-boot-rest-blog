@@ -1,7 +1,7 @@
-package com.example.blog.services;
+package com.example.blog.service;
 
 import com.example.blog.models.Post;
-import com.example.blog.repositories.PostRepository;
+import com.example.blog.repository.PostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
 import org.springframework.data.domain.PageRequest;

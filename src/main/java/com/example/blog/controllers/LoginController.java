@@ -1,7 +1,7 @@
 package com.example.blog.controllers;
 
 import com.example.blog.forms.LoginForm;
-import com.example.blog.services.UserService;
+import com.example.blog.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;

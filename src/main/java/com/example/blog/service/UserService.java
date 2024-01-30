@@ -1,10 +1,10 @@
-package com.example.blog.services;
+package com.example.blog.service;
 
 import blog.models.User;
 
 import java.util.List;
 
-public interface UserService {
+public class UserService {
 
     List<User> findAll();
     User findById(Long id);

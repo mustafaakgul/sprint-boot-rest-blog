@@ -1,4 +1,4 @@
-package com.example.blog.services;
+package com.example.blog.service;
 
 import blog.models.User;
 import blog.repositories.UserRepository;

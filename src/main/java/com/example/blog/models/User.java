@@ -13,7 +13,7 @@ import java.util.Set;
 
 @Entity
 @Table(name = "users")
-public class User {
+public class User2 {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -68,20 +68,6 @@ public class User {
 
     public void setPosts(Set<Post> posts) {
         this.posts = posts;
-    }
-
-    public User() {
-    }
-
-    public User(String username, String fullName) {
-        this.username = username;
-        this.fullName = fullName;
-    }
-
-    public User(Long id, String username, String fullName) {
-        this.id = id;
-        this.username = username;
-        this.fullName = fullName;
     }
 
     @Override
