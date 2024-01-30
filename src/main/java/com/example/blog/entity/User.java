@@ -51,6 +51,9 @@ public class User {
         this.username = username;
     }
 
+/*    @Column(length = 60)
+    private String passwordHash;*/
+
     public String getFirstName() {
         return firstName;
     }
