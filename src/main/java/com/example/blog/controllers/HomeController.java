@@ -7,12 +7,11 @@ import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
-import java.util.stream.Collectors;;
+import java.util.stream.Collectors;
 
 @Controller
 public class HomeController {
@@ -30,16 +29,5 @@ public class HomeController {
         model.addAttribute("latest2posts", latest2Posts);
 
         return "index";
-    }
-
-    @GetMapping(value = "")
-    public String index(@RequestParam(defaultValue = "1") int page, Model model) {
-        page = page < 1 ? 0 : page - 1;
-        Page<Post> posts = postService.getAllPublishedPostsByPage(page, appSetting.getPageSize());
-
-        model.addAttribute("totalPages", posts.getTotalPages());
-        model.addAttribute("posts", posts);
-        model.addAttribute("page", page + 1);
-        return "index/home";
     }
 }
