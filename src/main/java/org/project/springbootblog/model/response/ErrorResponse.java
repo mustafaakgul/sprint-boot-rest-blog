@@ -7,6 +7,9 @@ public class ErrorResponse {
     HttpStatus httpStatus;
     String message;
 
+    public ErrorResponse() {
+    }
+
     public ErrorResponse(HttpStatus httpStatus, String message) {
         this.httpStatus = httpStatus;
         this.message = message;
