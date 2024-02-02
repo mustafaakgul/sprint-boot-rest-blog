@@ -9,6 +9,17 @@
 * "Optional" can be used as a return type for repository methods to indicate that a null value will be returned in the case of a non-existent entity.
 * Folder name in strıcture should be singular -> "entity" not "entities"
 
+* https://www.linkedin.com/pulse/20-spring-boot-developer-best-practices-abid-anjum/
+* https://medium.com/@raviyasas/spring-boot-best-practices-for-developers-3f3bdffa0090
+* https://studygyaan.com/spring-boot/spring-boot-best-practices-build-efficient-applications
+* https://malshani-wijekoon.medium.com/spring-boot-folder-structure-best-practices-18ef78a81819
+* https://medium.com/thefreshwrites/best-practices-in-spring-boot-project-structure-2986adb290
+* https://studygyaan.com/spring-boot/spring-boot-project-folder-structure-and-best-practices
+* https://www.linkedin.com/pulse/restful-apis-spring-boot-best-practices-nidhal-naffati/
+* https://medium.com/@AlexanderObregon/best-practices-for-developing-restful-web-services-in-spring-boot-24ca20ee9715
+* https://medium.com/@KkambizZ/best-practices-to-follow-when-developing-rest-apis-in-a-microservice-application-using-spring-boot-9f2d1a2a49fb
+* 
+
 ### How to run
 * Run the main method in the com.example.demo.DemoApplication class from your IDE.
 * Alternatively you can use the Spring Boot Maven plugin like so:

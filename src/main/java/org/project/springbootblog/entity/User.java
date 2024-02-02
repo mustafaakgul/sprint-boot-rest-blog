@@ -33,8 +33,8 @@ public class User {
 
     private int age;
 
-    public User() {
-    }
+//    public User() {
+//    }
 
     public User(String email, String password) {
         this.email = email;

@@ -29,7 +29,7 @@ public class SecurityConfig  {
         return authenticationManagerBuilder.build();
     }
 
-
+    // Security filter chain to apply custom security configurations
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 
@@ -42,7 +42,7 @@ public class SecurityConfig  {
         return http.build();
     }
 
-
+    //TODO: Remove this method and use a proper password encoder
     @SuppressWarnings("deprecation")
     @Bean
     public NoOpPasswordEncoder passwordEncoder() {
