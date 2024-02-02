@@ -15,14 +15,20 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(name = "username", nullable = false, unique = true)
+    @Column(name = "username", nullable = true, unique = true)
     private String username;
 
-    @Column(name = "first_name", nullable = false)
+    @Column(name = "email", nullable = true, unique = true)
+    private String email;
+
+    @Column(name = "password", nullable = true)
+    private String password;
+
+    @Column(name = "first_name", nullable = true)
     private String firstName;
 
 
-    @Column(name = "last_name", nullable = false)
+    @Column(name = "last_name", nullable = true)
     private String lastName;
 
     private int age;
@@ -30,8 +36,22 @@ public class User {
     public User() {
     }
 
+    public User(String email, String password) {
+        this.email = email;
+        this.password = password;
+    }
+
     public User(String username, String firstName, String lastName, int age) {
         this.username = username;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.age = age;
+    }
+
+    public User(String username, String email, String password, String firstName, String lastName, int age) {
+        this.username = username;
+        this.email = email;
+        this.password = password;
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
@@ -53,8 +73,13 @@ public class User {
         this.username = username;
     }
 
-/*    @Column(length = 60)
-    private String passwordHash;*/
+    public String getEmail() { return email; }
+
+    public void setEmail(String email) { this.email = email; }
+
+    public String getPassword() { return password; }
+
+    public void setPassword(String password) { this.password = password; }
 
     public String getFirstName() {
         return firstName;
@@ -85,6 +110,8 @@ public class User {
         return "User{" +
                 "id=" + id +
                 ", username='" + username + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", age=" + age +
