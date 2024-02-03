@@ -36,6 +36,20 @@ public class PostController {
         return ResponseEntity.ok().body(post);
     }
 
+    @GetMapping("/{id}/ex")
+    public ResponseEntity<Post> getPostById(@PathVariable long id) {
+        try {
+            Post post = postService.getById(id);
+
+            if (post == null) {
+                throw new ResourceNotFoundException("Post not found");
+            }
+            return post;
+        } catch (PostServiceException e) {
+            throw new PostServiceException("Internal Server Exception while getting exception");
+        }
+    }
+
     @PostMapping("")
     public ResponseEntity<Post> addPost(@RequestBody Post post) {
         return ResponseEntity.ok(this.postService.create(post));
